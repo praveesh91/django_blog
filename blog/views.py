@@ -74,14 +74,20 @@ def get_date(post):
 
 def starting_page(request):
     sorted_posts=sorted(all_posts, key=get_date)
-    latest_posts=sorted_posts[-3:]
+    latest_posts=sorted_posts[-2:]
     return render(request,"blog/index.html",{
         "posts":latest_posts
     })
 
 def posts(request):
-    return render(request,"blog/all-posts.html")
+    return render(request,"blog/all-posts.html",{
+        "all_posts":all_posts
+    })
 
 def post_detail(request,slug):
-    return render(request,"blog/post-detail.html")
+    selected_post = next(filter(lambda item:item['slug']==slug, all_posts))
+    print(selected_post)
+    return render(request,"blog/post-detail.html",{
+        "selected_post":selected_post
+    })
 
