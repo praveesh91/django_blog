@@ -1,0 +1,14 @@
+{% load static %}
+
+{% block css_files %}
+<link rel="stylesheet" href={% static "blog/post.css" %}>
+{% endblock %}
+
+<li>
+    <article class="post">
+        <a href="">
+            <img src="{% static  "blog/images/mountains.jpg" %}" alt="Mountain hiking">
+            <div class="post__content">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris</div>
+        </a>
+    </article>
+</li>
